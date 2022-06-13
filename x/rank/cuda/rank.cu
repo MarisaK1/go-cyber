@@ -18,8 +18,12 @@ const int CUDA_THREAD_BLOCK_SIZE = 256;
 /* All in links used here are compressed in links    */
 /*****************************************************/
 __global__
+	//https://habr.com/ru/post/54707/
+	// https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
 void run_rank_iteration(
+	//void - no return (https://prog-cpp.ru/c-functions/)
     CompressedInLink *inLinks,                            /* all compressed in links */
+	//https://metanit.com/cpp/c/5.7.php
     double *prevRank, double *rank, uint64_t rankSize,    /* array index - cid index */
     uint64_t *inLinksStartIndex, uint32_t *inLinksCount,  /* array index - cid index */
     double defaultRankWithCorrection,                     /* default rank + inner product correction */
