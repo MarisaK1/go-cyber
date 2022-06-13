@@ -1,12 +1,15 @@
 #include <stdint.h>
+// stdint.h — заголовочный файл стандартной библиотеки языка Си
 #include <stdio.h>
+// stdio.h (от англ. standard input/output header — стандартный заголовочный файл ввода-вывода) - заголовочный файл стандартной библиотеки языка Си
 #include <thrust/transform.h>
+// The API reference guide for Thrust, the CUDA C++ template library - https://docs.nvidia.com/cuda/thrust/index.html
 #include <thrust/transform_reduce.h>
 #include <thrust/device_vector.h>
 #include <thrust/execution_policy.h>
 #include <thrust/functional.h>
 #include "types.h"
-
+// types header file
 const int CUDA_THREAD_BLOCK_SIZE = 256;
 
 /*****************************************************/
