@@ -20,7 +20,8 @@ const int CUDA_THREAD_BLOCK_SIZE = 256;
 __global__
 	//https://habr.com/ru/post/54707/
 	// https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
-void run_rank_iteration(
+void 
+(
 	//void - no return (https://prog-cpp.ru/c-functions/)
     CompressedInLink *inLinks,                            /* all compressed in links */
 	//https://metanit.com/cpp/c/5.7.php
@@ -32,7 +33,7 @@ void run_rank_iteration(
 
 	int index = blockIdx.x * blockDim.x + threadIdx.x;
     uint64_t stride = blockDim.x * gridDim.x;
-
+//https://academy.hpc-russia.ru/files/lecture_1.pdf
     for (uint64_t i = index; i < rankSize; i += stride) {
         if(inLinksCount[i] == 0) { continue; }
 
@@ -629,7 +630,8 @@ extern "C" {
         while(change > tolerance) {
             swap(d_rank, d_prevRank);
             steps++;
-        	run_rank_iteration<<<CUDA_BLOCKS_NUMBER,CUDA_THREAD_BLOCK_SIZE>>>(
+        	
+		<<<CUDA_BLOCKS_NUMBER,CUDA_THREAD_BLOCK_SIZE>>>(
                 d_compressedInLinks,
                 d_prevRank, d_rank, cidsSize,
                 d_compressedInLinksStartIndex, d_compressedInLinksCount,
