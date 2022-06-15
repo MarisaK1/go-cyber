@@ -54,6 +54,8 @@ void
 /*****************************************************/
 struct absolute_value {
   __device__ double operator()(const double &x) const {
+  //In CUDA, the host refers to the CPU and its memory, while the device refers to the GPU and its memory.
+  //https://developer.nvidia.com/blog/easy-introduction-cuda-c-and-c/
     return x < 0.0 ? -x : x;
   }
 };
