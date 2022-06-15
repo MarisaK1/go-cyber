@@ -363,6 +363,7 @@ void printSize(size_t usageOffset) {
 
 extern "C" {
 //https://alex-siew.livejournal.com/2489.html
+//https://stackoverflow.com/questions/27756187/is-extern-c-no-longer-needed-anymore-in-cuda
     void calculate_rank(
         uint64_t *stakes, uint64_t stakesSize,                    /* User stakes and corresponding array size */
         uint64_t cidsSize, uint64_t linksSize,                    /* Cids count */
